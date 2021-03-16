@@ -10,10 +10,10 @@ int main () {
     scanf("%d" &B);
 
      if(A != B) {
-     printf("\n NÚMEROS DIFERENTES! \t");
+     printf("\n NÃšMEROS DIFERENTES! \t");
      }
      else {
-        printf ("\n NÚMEROS IGUAIS! \t");
+        printf ("\n NÃšMEROS IGUAIS! \t");
      }
     return 0;
 }
