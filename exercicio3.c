@@ -4,7 +4,7 @@
 
 int main () {
 int cp;
-float pe, tt;
+float pe, ta, tb, tt;
 
 printf("Informe o preco do produto: ");
 scanf("%f", &pe);
@@ -27,12 +27,11 @@ tt=pe/2;
 printf("O valor parcelado em duas vezes sem acrescimo sera de R$%f\n", tt);
 break;
 case 4:
-tt=pe+(pe*0.1)/3;
+ta=pe*0.1;
+tb=pe+ta;
+tt=tb/3;
 printf("O valor parcelado em tres vezes com acrescimo de 10 porcento sera de  R$%f\n", tt);
+break;
 }
-
-
-
-
 return 0;
 }
