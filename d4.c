@@ -1,24 +1,47 @@
 #include <stdio.h>
-#include <math.h>
-void main(){
-char m[50];
-int fin, par, jur, x, y, zz;
-float z;
 
-printf("Modelo do carro:");
-gets(m);
-printf("Valor a ser financiado:");
-scanf("%d",&fin);
-printf("Numero de parcelas:");
-scanf("%d",&par);
-printf("Taxa de juros:");
-scanf("%d",&jur);
-z=jur*0.01;
-zz=fin*z;
-for(x=0;x<=par;x++){
-y=fin+zz;
+float calculajuros(float valor, float juros)
+{
+    float r=valor+((valor*juros)/100);
+    return(r);
 }
-x=y/par;
-printf("Valor financiamento do carro modelo %s R$%d\n",m,y);
-printf("Valor de cada uma das %d parcelas: %d\n",par,x);
+
+
+int main()
+{
+    float valorcarro, juros, valorfin=0;
+    int npar, mes;
+    char op='n';
+    char carro[40];
+
+    do {
+    printf("*** Simulador de Financiamento ***\n");
+    printf("Modelo do carro: ");
+    setbuf(stdin,NULL);
+    gets(carro);
+    printf("Digite o valor do carro: ");
+    scanf("%f",&valorcarro);
+    printf("Digite numero de parcelas: ");
+    scanf("%d",&npar);
+    printf("Informe a taxa de juros: ");
+    scanf("%f",&juros);
+
+    for(mes=1;mes<=npar;mes++){
+        if (mes==1){
+            valorfin=calculajuros(valorcarro,juros);
+        }
+        else
+        {
+            valorfin=calculajuros(valorfin,juros);
+        }
+    }
+    printf("Total do financiamento = %.2f\n",valorfin);
+    printf("Valor das parcelas = %.2f\n",valorfin/npar);
+
+    printf("\nDigite S para sair, outra tecla continua...\n");
+    scanf(" %c",&op);
+
+    }while (op!='s' && op!='S');
+
+    return(0);
 }
