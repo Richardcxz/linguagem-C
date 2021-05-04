@@ -4,7 +4,9 @@
 void main() {
 int esc,case1,case2,case3,adc,adc2,adc3,sub,sub2,sub3,mult,mult2,mult3,divi,divi2,divi3,pot,pot2,pot3;
 float rad,rad2;
+char op='n';
 
+do{  
 printf("Escolha qual tipo de conta deseja fazer:\n");
 printf("1-Adicao e Subtracao\n");
 printf("2-Multiplicacao e Divisao\n");
@@ -80,5 +82,8 @@ rad2=sqrt(rad);
 printf("a valor da radiciacao sera: %f\n",rad2);
 }
 break;
-
-}}
+}
+printf("\nDigite S para sair, outra tecla continua...\n");
+scanf(" %c",&op);
+}while (op!='s' && op!='S');
+}
